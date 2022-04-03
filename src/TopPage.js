@@ -1,5 +1,4 @@
-import React, { Component } from 'react'; 
-import ApproveUSD from './ApproveUSD.js';
+import React, { Component } from 'react';  
 import ContractInfo from './ContractInfo.js';
 import UserInfo from './UserInfo.js';
 import getBlockchain from './ethereum.js';
@@ -10,8 +9,9 @@ import logo from "./assets/logo21.png"
 import ReferralLink from './ReferralLink.js';
 import Withdraw from './Withdraw.js';
 import "./css/style.css";  
+import UserDepositInfo from './UserDepositInfo.js';
 
-const primalBankAddress = "0x62e83Ebe1Af78E9a848793A1d0E85E8d12Fb3DDa";
+const primalBankAddress = "0x2f4390b49CdbD777370B16Dc2AC526d089A1Eb30";
  
 class TopPage extends Component { 
 
@@ -25,7 +25,7 @@ class TopPage extends Component {
    timerData = async () => {
     let { primalBank } = await getBlockchain();
 
-    const pool_last_draw = await primalBank.pool_last_draw();
+       const pool_last_draw = await primalBank.pool_last_draw();
        this.setState({ pool_last_draw: Number(pool_last_draw) });
 
        const time_step = await primalBank.time_period();
@@ -56,9 +56,9 @@ class TopPage extends Component {
         this.setState({ draw_hrs });
         this.setState({ draw_mins });
         this.setState({ draw_secs });
-        console.log('next draw hrs - ' + this.state.draw_hrs)
-        console.log('next draw mins - ' + this.state.draw_mins)
-        console.log('next draw secs - ' + this.state.draw_secs) 
+        // console.log('next draw hrs - ' + this.state.draw_hrs)
+        // console.log('next draw mins - ' + this.state.draw_mins)
+        // console.log('next draw secs - ' + this.state.draw_secs) 
     }     
 
    loadBlockChainData = async () => {
@@ -132,14 +132,48 @@ class TopPage extends Component {
        this.setState({ pool_bonus : (Number(userInfo.pool_bonus)/10**18) });
        this.setState({ deficit : (Number(userInfo.deficit)/10**18) }); 
        this.setState({ total_staked : (Number(userInfo.total_staked)/10**18) });  
-   }
+       this.setState({ checkpoint : (Number(userInfo.checkpoint) ) });  
 
+
+    //    let stakeInfo1 = await primalBank.getUserStakes(this.state.currentAcc, 0, this.state.no_of_stakes)
+    //    let stakeInfo2 = await primalBank.getUserStakes2(this.state.currentAcc, 0, this.state.no_of_stakes)
+ 
+       
+       const now = await primalBank.getNow();
+       this.setState({ now: Number(now) }); 
+
+    let _bnb_amount = [];
+    let _bnb_dividends = [];
+    let _prm_dividends = []; 
+     
+    if(this.state.no_of_stakes > 0){
+ 
+    for(var i =0; i < this.state.no_of_stakes; i++){
+        let stakeInfo1 = await primalBank.getPartStakeDividends(this.state.currentAcc, i ) 
+        
+        _bnb_amount[i] = Number(stakeInfo1.bnb_amount/10**18);
+        _bnb_dividends[i] = Number(stakeInfo1.bnb_dividends /10**18);
+        _prm_dividends[i] = Number(stakeInfo1.prm_dividends/10**6); 
+        console.log( _bnb_amount[i], _bnb_dividends[i] , _prm_dividends[i] );
+   //  console.log( this.state.now ) 
+    }}
+
+    this.setState({bnb_amt : _bnb_amount })
+    this.setState({bnb_divs : _bnb_dividends })
+    this.setState({prm_divs : _prm_dividends })
+    console.log(this.state.bnb_amt[0]) 
+    this.setState({loading : false})
+    }
+ 
    constructor(props) {
     super(props)
 
     this.state = {
          symbol :'',
-
+         loading: true,
+         bnb_amt: [],
+         bnb_divs: [],
+         prm_divs: [],
         } 
     }
 
@@ -199,6 +233,15 @@ class TopPage extends Component {
                 />
                 <TopSponsor
                 />
+                {this.state.loading === false
+                ?<UserDepositInfo
+                   no_of_stakes = {this.state.no_of_stakes} 
+                   bnb_amt = {this.state.bnb_amt}
+                   bnb_divs = {this.state.bnb_divs}
+                   prm_divs = {this.state.prm_divs}
+                />
+            : null}
+                
 
                     
                 

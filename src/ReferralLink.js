@@ -53,6 +53,7 @@ export class ReferralLink extends Component {
                                 <input style={{ textAlign: "center", backgroundColor: "black", color: "#eee97f", width: "100%", height: "30px" }}
                                     ref={(textarea) => this.textArea = textarea}
                                     value={url + this.props.currentAcc}
+                                    readOnly
                                 />
                             </form>
                             {

@@ -1,8 +1,7 @@
 import React from "react";
 import Top from "./TopPage";
 import { Route, BrowserRouter } from "react-router-dom";
-import Param from "./Param";
-import Calc from "./Calc";
+import Param from "./Param"; 
 // import JoiningGuide from "./JoinGuide";
 // import TopSponsor from "./TopSponsor";
 // import AboutUs from "./AboutUs";
