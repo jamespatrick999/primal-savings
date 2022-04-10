@@ -23,7 +23,7 @@ export class Invest extends Component {
         const { primalBank } = await getBlockchain();
 
         if (amount >= 0.01) {
-            let amt = Number(amount*100 ).toFixed();
+            let amt = Number(amount*100).toFixed();
             amt = amt + "0000000000000000";
 
             await primalBank
@@ -39,7 +39,7 @@ export class Invest extends Component {
                     }, 12500);
                 }).catch(err => toast.error(err+ " Unknown error"));
         } else {
-            toast.info('Minimum purchase allowed is 0.01 BNB');
+            toast.info('Minimum purchase allowed is 0.05 BNB');
         } 
     }
 
@@ -88,16 +88,8 @@ export class Invest extends Component {
         const colStyle = {
             opacity: "80%", marginTop: "20px", borderRadius: "20px", marginLeft: "20px", marginRight: "20px",
             boxShadow: "0 0 20px #eee",backgroundImage: "linear-gradient(to right, #131050, black)"
-        };
-
-        // const addButton = {
-        //     display: "inline-block",
-        //     padding: "0.5em 1em",
-        //     textDecoration: "none",
-        //     color: "#FFF",
-        //     transition: ".4s", marginTop: "10px", marginLeft: "10px", marginBottom: "10px", fontWeight: "3px", border: "3px solid white", backgroundColor: "black"
-        // }
-
+        }; 
+        
         const purchaseButton = {
             display: "inline-block",
             padding: "0.5em 1em",
@@ -147,11 +139,13 @@ export class Invest extends Component {
                             <a href="#500000" className="btn btn-primary" style={addButton} onClick={this.button500k}>+500 k</a>
                             <a href="#reset" className="btn btn-primary" style={addButton} onClick={this.reset}>Reset</a><br /> */}
                             
-                            <p style={{ color: "#eee97f", textAlign: "center", fontSize: "15px" }}>You will receive : {Number(this.state.count*1.2).toFixed(3)} BNB</p>
+                            <p style={{ color: "#eee97f", textAlign: "center", fontSize: "15px" }}>You will receive : {this.state.count >= 0.1 ? Number(this.state.count*1.5).toFixed(3) : (this.state.count >= 0.05 ? Number(this.state.count*1.35).toFixed(3) :  Number(this.state.count*1.2).toFixed(3) ) } BNB</p>
 
-                            <p style={{ color: "#eee97f", textAlign: "center", fontSize: "15px" }}>PRM price : {Number(this.props.prmPrice ).toFixed(8)} BNB</p>
+                            <p style={{ color: "#eee97f", textAlign: "center", fontSize: "15px" }}>Total Return : {this.state.count >= 0.1 ? 150 : (this.state.count >= 0.05 ? 135 : 120) } %</p>
 
-                            <p style={{ color: "#eee97f", textAlign: "center", fontSize: "15px" }}>PRM receivable : {Number(this.state.count/this.props.prmPrice*5/100 ).toFixed(8)} PRM</p>
+                            {/* <p style={{ color: "#eee97f", textAlign: "center", fontSize: "15px" }}>PRM price : {Number(this.props.prmPrice ).toFixed(8)} BNB</p> */}
+
+                            {/* <p style={{ color: "#eee97f", textAlign: "center", fontSize: "15px" }}>PRM receivable : {Number(this.state.count/this.props.prmPrice*5/100 ).toFixed(8)} PRM</p> */}
                              
  
                             {/* <p style={{ color: "#eee97f", textAlign: "center", fontSize: "15px" }}>Your BOND Balance : {this.props.rtBal} BOND</p>

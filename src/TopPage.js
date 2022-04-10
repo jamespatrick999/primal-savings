@@ -8,10 +8,11 @@ import back from "./assets/bg10.jpg"
 import logo from "./assets/logo21.png" 
 import ReferralLink from './ReferralLink.js';
 import Withdraw from './Withdraw.js';
+import Plan from './Plan.js';
 import "./css/style.css";  
 import UserDepositInfo from './UserDepositInfo.js';
 
-const primalBankAddress = "0x2f4390b49CdbD777370B16Dc2AC526d089A1Eb30";
+const primalBankAddress = "0x81d656642b4aDCe8b65dF0431142fd86f57615a4";
  
 class TopPage extends Component { 
 
@@ -137,10 +138,31 @@ class TopPage extends Component {
 
     //    let stakeInfo1 = await primalBank.getUserStakes(this.state.currentAcc, 0, this.state.no_of_stakes)
     //    let stakeInfo2 = await primalBank.getUserStakes2(this.state.currentAcc, 0, this.state.no_of_stakes)
- 
-       
-       const now = await primalBank.getNow();
-       this.setState({ now: Number(now) }); 
+  
+    const now = await primalBank.getNow();
+    this.setState({ now: Number(now) }); 
+
+    const wei_bnb = await primalBank.wei_bnb();
+    this.setState({ wei_bnb: Number(wei_bnb) }); 
+
+    const wei_prm = await primalBank.wei_prm();
+    this.setState({ wei_prm: Number(wei_prm) }); 
+
+    const planB_bnb_min = await primalBank.planB_bnb_min();
+    this.setState({ planB_bnb_min: Number(planB_bnb_min/this.state.wei_bnb) });
+
+    const planC_bnb_min = await primalBank.planC_bnb_min();
+    this.setState({ planC_bnb_min: Number(planC_bnb_min/this.state.wei_bnb) });
+    console.log(this.state.planC_bnb_min)
+
+    const planA_prm = await primalBank.planA_prm();
+    this.setState({ planA_prm: Number(planA_prm/this.state.wei_prm) });
+
+    const planB_prm = await primalBank.planB_prm();
+    this.setState({ planB_prm: Number(planB_prm/this.state.wei_prm) });
+
+    const planC_prm = await primalBank.planC_prm();
+    this.setState({ planC_prm: Number(planC_prm/this.state.wei_prm) });
 
     let _bnb_amount = [];
     let _bnb_dividends = [];
@@ -161,7 +183,7 @@ class TopPage extends Component {
     this.setState({bnb_amt : _bnb_amount })
     this.setState({bnb_divs : _bnb_dividends })
     this.setState({prm_divs : _prm_dividends })
-    console.log(this.state.bnb_amt[0]) 
+   // console.log(this.state.bnb_amt[0]) 
     this.setState({loading : false})
     }
  
@@ -189,7 +211,7 @@ class TopPage extends Component {
                 <div style={{ textAlign: "center", marginTop:"30px" }}>
                     <a href="#" style={{ textAlign: "center", width:"100%" }} className='btn-grad'> Presentation </a> 
                 </div>
-                
+                <Plan />
                 <Invest 
                     prmBal = {this.state.tokenBal}
                     currentAcc = {this.state.currentAcc}
@@ -240,10 +262,7 @@ class TopPage extends Component {
                    bnb_divs = {this.state.bnb_divs}
                    prm_divs = {this.state.prm_divs}
                 />
-            : null}
-                
-
-                    
+            : null} 
                 
                 <div style={{ paddingBottom: "20px" }}></div>
 
