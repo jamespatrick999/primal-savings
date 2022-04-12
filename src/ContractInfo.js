@@ -27,44 +27,52 @@ export class ContractInfo extends Component {
 
                         <div className="col-xl-12" style={{ textAlign: "center" }}> 
           
-                            <p style={{ color: "white", fontSize: "17px", textAlign: "center" }}>Contract PRM Balance</p>
+                            {/* <p style={{ color: "white", fontSize: "17px", textAlign: "center" }}>Contract PRM Balance</p>
                             <a href="#1" style={{ color: "#eee97f", fontSize: "15px", textAlign: "center" }}> {Number(this.props.contract_prm_balance).toFixed(4) } PRM  </a>
                             <br /><br />
                             <p style={{ color: "white", fontSize: "17px", textAlign: "center" }}>Contract BNB Balance</p>
                             <a href="#1" style={{ color: "#eee97f", fontSize: "15px", textAlign: "center" }}> {this.props.contract_bnb_balance } BNB </a>
-                            <br /><br />
-                            <p style={{ color: "white", fontSize: "17px", textAlign: "center" }}>Total Number of Stakes</p>
-                            <a href="#1" style={{ color: "#eee97f", fontSize: "15px", textAlign: "center" }}> # {this.props.total_no_stakes }  </a>
-                            <br /><br />
-                            <p style={{ color: "white", fontSize: "17px", textAlign: "center" }}>Total Users</p>
-                            <a href="#1" style={{ color: "#eee97f", fontSize: "15px", textAlign: "center" }}> # {this.props.contract_total_users }  </a>
-                            <br /><br />
-                            <p style={{ color: "white", fontSize: "17px", textAlign: "center" }}>Total PRM Staked</p>
-                            <a href="#1" style={{ color: "#eee97f", fontSize: "15px", textAlign: "center" }}> {this.props._total_prm_staked } PRM  </a>
-                            <br /><br />
+                            <br /><br /> */}
                             <p style={{ color: "white", fontSize: "17px", textAlign: "center" }}>Total BNB Staked</p>
                             <a href="#1" style={{ color: "#eee97f", fontSize: "15px", textAlign: "center" }}> {this.props._total_bnb_staked } BNB  </a>
                             <br /><br />
+
+                            <p style={{ color: "white", fontSize: "17px", textAlign: "center" }}>Total Number of Stakes</p>
+                            <a href="#1" style={{ color: "#eee97f", fontSize: "15px", textAlign: "center" }}> # {this.props.total_no_stakes }  </a>
+                            <br /><br />
+                            
+                            <p style={{ color: "white", fontSize: "17px", textAlign: "center" }}>Total Users</p>
+                            <a href="#1" style={{ color: "#eee97f", fontSize: "15px", textAlign: "center" }}> # {this.props.contract_total_users }  </a>
+                            <br /><br />
+                            
+                            <p style={{ color: "white", fontSize: "17px", textAlign: "center" }}>Total PRM Staked</p>
+                            <a href="#1" style={{ color: "#eee97f", fontSize: "15px", textAlign: "center" }}> {this.props._total_prm_staked } PRM  </a>
+                            <br /><br />
+                            
                             <p style={{ color: "white", fontSize: "17px", textAlign: "center" }}>Total PRM Withdrawn</p>
                             <a href="#1" style={{ color: "#eee97f", fontSize: "15px", textAlign: "center" }}> {this.props._total_prm_withdrawn } PRM  </a>
                             <br /><br />
+                            
                             <p style={{ color: "white", fontSize: "17px", textAlign: "center" }}>Total BNB Withdrawn</p>
                             <a href="#1" style={{ color: "#eee97f", fontSize: "15px", textAlign: "center" }}> {this.props._total_bnb_withdrawn } BNB  </a>
                             <br /><br />
-                            <p style={{ color: "white", fontSize: "17px", textAlign: "center" }}>Total Liability</p>
+                            
+                            {/* <p style={{ color: "white", fontSize: "17px", textAlign: "center" }}>Total Liability</p>
                             <a href="#1" style={{ color: "#eee97f", fontSize: "15px", textAlign: "center" }}> {this.props.total_liability } BNB  </a>
                             <br /><br />
+                             */}
                             <p style={{ color: "white", fontSize: "17px", textAlign: "center" }}>Pool Balance</p>
                             <a href="#1" style={{ color: "#eee97f", fontSize: "15px", textAlign: "center" }}> {this.props.pool_balance } BNB  </a>
                             <br /><br />
-                            <p style={{ color: "white", fontSize: "17px", textAlign: "center" }}>No. of Pool Cycles</p>
+                            
+                            {/* <p style={{ color: "white", fontSize: "17px", textAlign: "center" }}>No. of Pool Cycles</p>
                             <a href="#1" style={{ color: "#eee97f", fontSize: "15px", textAlign: "center" }}># {this.props.pool_cycle }    </a>
                             <br /><br />
+                             */}
                             <p style={{ color: "white", fontSize: "17px", textAlign: "center" }}>Next Draw (Sponsor Pro)</p>
                             <a href="#1" style={{ color: "#eee97f", fontSize: "15px", textAlign: "center" }}> {this.props.draw_hrs }h : {this.props.draw_mins }m : {this.props.draw_secs }s</a>
                             <br /><br />
-
-                            
+  
                         </div>
                     </div>
                     <div className="col-xl-3"></div>

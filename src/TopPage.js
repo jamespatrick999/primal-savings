@@ -9,10 +9,10 @@ import logo from "./assets/logo21.png"
 import ReferralLink from './ReferralLink.js';
 import Withdraw from './Withdraw.js';
 import Plan from './Plan.js';
-import "./css/style.css";  
 import UserDepositInfo from './UserDepositInfo.js';
+import "./css/style.css";  
 
-const primalBankAddress = "0x81d656642b4aDCe8b65dF0431142fd86f57615a4";
+const primalBankAddress = "0x2235E99d0B011253c0198Fb1DB55CAD6888057Ec";
  
 class TopPage extends Component { 
 
@@ -134,11 +134,7 @@ class TopPage extends Component {
        this.setState({ deficit : (Number(userInfo.deficit)/10**18) }); 
        this.setState({ total_staked : (Number(userInfo.total_staked)/10**18) });  
        this.setState({ checkpoint : (Number(userInfo.checkpoint) ) });  
-
-
-    //    let stakeInfo1 = await primalBank.getUserStakes(this.state.currentAcc, 0, this.state.no_of_stakes)
-    //    let stakeInfo2 = await primalBank.getUserStakes2(this.state.currentAcc, 0, this.state.no_of_stakes)
-  
+ 
     const now = await primalBank.getNow();
     this.setState({ now: Number(now) }); 
 
@@ -167,6 +163,7 @@ class TopPage extends Component {
     let _bnb_amount = [];
     let _bnb_dividends = [];
     let _prm_dividends = []; 
+    let _secsGone = []; 
      
     if(this.state.no_of_stakes > 0){
  
@@ -176,13 +173,15 @@ class TopPage extends Component {
         _bnb_amount[i] = Number(stakeInfo1.bnb_amount/10**18);
         _bnb_dividends[i] = Number(stakeInfo1.bnb_dividends /10**18);
         _prm_dividends[i] = Number(stakeInfo1.prm_dividends/10**6); 
-        console.log( _bnb_amount[i], _bnb_dividends[i] , _prm_dividends[i] );
+        _secsGone[i] = Number(stakeInfo1.secsGone ); 
+        console.log( _bnb_amount[i], _bnb_dividends[i] , _prm_dividends[i], _secsGone[i] );
    //  console.log( this.state.now ) 
     }}
 
     this.setState({bnb_amt : _bnb_amount })
     this.setState({bnb_divs : _bnb_dividends })
     this.setState({prm_divs : _prm_dividends })
+    this.setState({secsGone : _secsGone })
    // console.log(this.state.bnb_amt[0]) 
     this.setState({loading : false})
     }
@@ -209,7 +208,7 @@ class TopPage extends Component {
                     <img src={logo} alt=""  width="220" />  
                 </div>
                 <div style={{ textAlign: "center", marginTop:"30px" }}>
-                    <a href="#" style={{ textAlign: "center", width:"100%" }} className='btn-grad'> Presentation </a> 
+                    <a href="https://drive.google.com/file/d/10yvmFdlganXE_8Sgj2MA8aj38nFosE8I/" style={{ textAlign: "center", width:"100%" }} className='btn-grad' target="_blank" rel="noreferrer"> Presentation </a> 
                 </div>
                 <Plan />
                 <Invest 
@@ -261,6 +260,7 @@ class TopPage extends Component {
                    bnb_amt = {this.state.bnb_amt}
                    bnb_divs = {this.state.bnb_divs}
                    prm_divs = {this.state.prm_divs}
+                   secsGone = {this.state.secsGone}
                 />
             : null} 
                 

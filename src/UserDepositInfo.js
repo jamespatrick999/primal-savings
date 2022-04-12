@@ -47,6 +47,8 @@ export class UserDepositInfo extends Component {
                                     <span href="#1" style={{ color: "#eee97f", fontSize: "15px"  }}>{Number(this.props.bnb_divs[0]).toFixed(5)} BNB </span><br />
                                     <span href="#1" style={{ color: "white", fontSize: "15px"  }}> PRM ROI : </span>
                                     <span href="#1" style={{ color: "#eee97f", fontSize: "15px"  }}>{Number(this.props.prm_divs[0]).toFixed(6)} PRM </span><br />
+                                    <span href="#1" style={{ color: "white", fontSize: "15px"  }}> Seconds Elapsed: </span>
+                                    <span href="#1" style={{ color: "#eee97f", fontSize: "15px"  }}>{Number(this.props.secsGone[0]) } s </span><br />
                                     </a>  
                                     <br /><br />
                                 </div>
@@ -65,6 +67,8 @@ export class UserDepositInfo extends Component {
                                     <span href="#1" style={{ color: "#eee97f", fontSize: "15px"  }}>{Number(this.props.bnb_divs[1]).toFixed(5)} BNB </span><br />
                                     <span href="#1" style={{ color: "white", fontSize: "15px"  }}> PRM ROI : </span>
                                     <span href="#1" style={{ color: "#eee97f", fontSize: "15px"  }}>{Number(this.props.prm_divs[1]).toFixed(6)} PRM </span><br />
+                                    <span href="#1" style={{ color: "white", fontSize: "15px"  }}> Seconds Elapsed: </span>
+                                    <span href="#1" style={{ color: "#eee97f", fontSize: "15px"  }}>{Number(this.props.secsGone[1]) } s </span><br />
                                     </a>  
                                     <br /><br />
                                 </div>
@@ -82,6 +86,8 @@ export class UserDepositInfo extends Component {
                                     <span href="#1" style={{ color: "#eee97f", fontSize: "15px"  }}>{Number(this.props.bnb_divs[2]).toFixed(5)} BNB </span><br />
                                     <span href="#1" style={{ color: "white", fontSize: "15px"  }}> PRM ROI : </span>
                                     <span href="#1" style={{ color: "#eee97f", fontSize: "15px"  }}>{Number(this.props.prm_divs[2]).toFixed(6)} PRM </span><br />
+                                    <span href="#1" style={{ color: "white", fontSize: "15px"  }}> Seconds Elapsed: </span>
+                                    <span href="#1" style={{ color: "#eee97f", fontSize: "15px"  }}>{Number(this.props.secsGone[2]) } s </span><br />
                                     </a>  
                                     <br /><br />
                                 </div>
@@ -99,6 +105,8 @@ export class UserDepositInfo extends Component {
                                     <span href="#1" style={{ color: "#eee97f", fontSize: "15px"  }}>{Number(this.props.bnb_divs[3]).toFixed(5)} BNB </span><br />
                                     <span href="#1" style={{ color: "white", fontSize: "15px"  }}> PRM ROI : </span>
                                     <span href="#1" style={{ color: "#eee97f", fontSize: "15px"  }}>{Number(this.props.prm_divs[3]).toFixed(6)} PRM </span><br />
+                                    <span href="#1" style={{ color: "white", fontSize: "15px"  }}> Seconds Elapsed: </span>
+                                    <span href="#1" style={{ color: "#eee97f", fontSize: "15px"  }}>{Number(this.props.secsGone[3]) } s </span><br />
                                     </a>  
                                  
                                 </div>
@@ -116,6 +124,8 @@ export class UserDepositInfo extends Component {
                                     <span href="#1" style={{ color: "#eee97f", fontSize: "15px"  }}>{Number(this.props.bnb_divs[4]).toFixed(5)} BNB </span><br />
                                     <span href="#1" style={{ color: "white", fontSize: "15px"  }}> PRM ROI : </span>
                                     <span href="#1" style={{ color: "#eee97f", fontSize: "15px"  }}>{Number(this.props.prm_divs[4]).toFixed(6)} PRM </span><br />
+                                    <span href="#1" style={{ color: "white", fontSize: "15px"  }}> Seconds Elapsed: </span>
+                                    <span href="#1" style={{ color: "#eee97f", fontSize: "15px"  }}>{Number(this.props.secsGone[4]) } s </span><br />
                                     </a>  
                                     <br /><br />
                                 </div>
