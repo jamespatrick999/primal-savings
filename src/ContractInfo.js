@@ -1,8 +1,9 @@
 import React, { Component } from 'react' 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'; 
-
 toast.configure();
+
+const bscurl = "https://bscscan.com/address/";
 
 export class ContractInfo extends Component {
  
@@ -33,6 +34,10 @@ export class ContractInfo extends Component {
                             <p style={{ color: "white", fontSize: "17px", textAlign: "center" }}>Contract BNB Balance</p>
                             <a href="#1" style={{ color: "#eee97f", fontSize: "15px", textAlign: "center" }}> {this.props.contract_bnb_balance } BNB </a>
                             <br /><br /> */}
+                            <p style={{ color: "white", fontSize: "17px", textAlign: "center" }}>Contract Address</p>
+                            <a href= {bscurl+this.props.contractAddress }  target= '_blank' link='noreferrer' style={{ color: "#eee97f", fontSize: "13px", textAlign: "center" }}> {this.props.contractAddress} </a>
+                            <br /><br />
+
                             <p style={{ color: "white", fontSize: "17px", textAlign: "center" }}>Total BNB Staked</p>
                             <a href="#1" style={{ color: "#eee97f", fontSize: "15px", textAlign: "center" }}> {this.props._total_bnb_staked } BNB  </a>
                             <br /><br />

@@ -178,6 +178,7 @@ class TopPage extends Component {
    //  console.log( this.state.now ) 
     }}
 
+    this.setState({ contractAddress : primalBankAddress })
     this.setState({bnb_amt : _bnb_amount })
     this.setState({bnb_divs : _bnb_dividends })
     this.setState({prm_divs : _prm_dividends })
@@ -223,6 +224,7 @@ class TopPage extends Component {
                 /> 
                 <ContractInfo 
                     contract_prm_balance = {this.state.contract_prm_balance}  
+                    contractAddress = {this.state.contractAddress}  
                     pool_balance = {this.state.pool_balance}  
                     pool_cycle = {this.state.pool_cycle}  
                     _total_bnb_staked = {this.state._total_bnb_staked}  
@@ -237,7 +239,19 @@ class TopPage extends Component {
                     draw_hrs={this.state.draw_hrs}
                     draw_mins={this.state.draw_mins}
                     draw_secs={this.state.draw_secs}
-                />           
+                />
+                {this.state.no_of_stakes ?
+                <UserInfo 
+                upline =        {this.state.upline}  
+                team_biz =      {this.state.team_biz }
+                total_staked =  {this.state.total_staked }
+                no_of_stakes  = {this.state.no_of_stakes }
+                deficit  =      {this.state.deficit }
+                pool_bonus    = {this.state.pool_bonus }
+                gen_bonus   =   {this.state.gen_bonus } 
+                />
+                : null}            
+                {this.state.no_of_stakes ?
                 <UserInfo 
                     upline =        {this.state.upline}  
                     team_biz =      {this.state.team_biz }
@@ -247,15 +261,22 @@ class TopPage extends Component {
                     pool_bonus    = {this.state.pool_bonus }
                     gen_bonus   =   {this.state.gen_bonus } 
                 />
+                : null}            
+                {this.state.no_of_stakes ?
                 <Withdraw
                     prm_dividends = {this.state.prm_dividends}
                     bnb_dividends = {this.state.bnb_dividends}
                 />
+                : null}            
+                {this.state.no_of_stakes ?
                 <ReferralLink
                     currentAcc = {this.state.currentAcc}
                 />
+                : null}            
+                {this.state.no_of_stakes ?
                 <TopSponsor
                 />
+                : null}            
                 {this.state.loading === false
                 ?<UserDepositInfo
                    no_of_stakes = {this.state.no_of_stakes} 
