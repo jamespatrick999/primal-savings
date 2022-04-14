@@ -12,7 +12,7 @@ import Plan from './Plan.js';
 import UserDepositInfo from './UserDepositInfo.js';
 import "./css/style.css";  
 
-const primalBankAddress = "0x2235E99d0B011253c0198Fb1DB55CAD6888057Ec";
+const primalBankAddress = "0xe63a277B4796f7D9907000A292D4CFC5B94A58FD";
  
 class TopPage extends Component { 
 
@@ -205,7 +205,9 @@ class TopPage extends Component {
     return (
         <div style={backStyle } >
                 <div style={{ textAlign: "center" , marginTop:"30px" }}>
-                    <img src={logo} alt=""  width="220" />  
+                    <a href = "https://primal-bank.xyz"> 
+                        <img src={logo} alt=""  width="220" /> 
+                    </a> 
                 </div>
                 <div style={{ textAlign: "center", marginTop:"30px" }}>
                     <a href="https://drive.google.com/file/d/10yvmFdlganXE_8Sgj2MA8aj38nFosE8I/" style={{ textAlign: "center", width:"100%" }} className='btn-grad' target="_blank" rel="noreferrer"> Presentation </a> 

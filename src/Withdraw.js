@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import getBlockchain from './ethereum.js';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import refresh from "./assets/refresh.png" 
 
 toast.configure();
 
@@ -58,7 +59,12 @@ class Withdraw extends Component {
                             Withdrawable Balance</div>
                         <br /> 
 
-                        <div style={{ color: "white", fontSize: "15px", fontFamily: "MyFont", textAlign: "center" }}> {Number(this.props.bnb_dividends).toFixed(8)} BNB</div><br />
+                        <div style={{ color: "white", fontSize: "15px", fontFamily: "MyFont", textAlign: "center" }}> {Number(this.props.bnb_dividends).toFixed(8)} BNB</div> 
+                        <div style={{ textAlign: "right" }}>  
+                            <a href = "/" style={{  textAlign: "center" }}> 
+                                <img src={refresh} alt=""  width="50" /> 
+                            </a>
+                        </div> 
                         <div style={{ color: "white", fontSize: "15px", fontFamily: "MyFont", textAlign: "center" }}> {Number(this.props.prm_dividends).toFixed(8)} PRM</div>
                         {/* <br />
                         <p style={{ textAlign: "center", color: "grey" }}> Requires gas fee

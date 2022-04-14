@@ -9,8 +9,7 @@ class TopSponsor2 extends Component {
         const colStyle = {
             backgroundImage: "linear-gradient(to right, #131050, black)", opacity: "70%", marginTop: "20px", borderRadius: "20px", marginLeft: "20px", marginRight: "20px",
             boxShadow: "0 0 20px #eee",
-        };
-
+        }; 
 
         return (
 

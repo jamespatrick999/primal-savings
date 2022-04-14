@@ -1,8 +1,8 @@
 import detectEthereumProvider from '@metamask/detect-provider';
 import { ethers, Contract } from 'ethers'; 
 
-const prmAddress = "0x914f32ad2E6Ea5795A8A4aCAb32558AA809f1A85"; 
-const primalBankAddress = "0x2235E99d0B011253c0198Fb1DB55CAD6888057Ec";
+const prmAddress = "0x2668BAbeAB11780c516B1d3aD02011668AFF8aa0"; 
+const primalBankAddress = "0xe63a277B4796f7D9907000A292D4CFC5B94A58FD";
 
 const prmABI = [
 	{
@@ -417,97 +417,6 @@ const primalBankABI = [
 		"type": "event"
 	},
 	{
-		"constant": false,
-		"inputs": [
-			{
-				"internalType": "bool",
-				"name": "_status",
-				"type": "bool"
-			}
-		],
-		"name": "changeClaimStatus",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"internalType": "address payable",
-				"name": "_newOwner",
-				"type": "address"
-			}
-		],
-		"name": "changeOwner",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_planA_prm_new",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_planB_prm_new",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_planC_prm_new",
-				"type": "uint256"
-			}
-		],
-		"name": "changePRMdistribution",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"internalType": "bool",
-				"name": "_status",
-				"type": "bool"
-			}
-		],
-		"name": "changeStakeStatus",
-		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [],
-		"name": "claimPRM",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"payable": true,
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
 		"anonymous": false,
 		"inputs": [
 			{
@@ -627,105 +536,6 @@ const primalBankABI = [
 		"type": "event"
 	},
 	{
-		"constant": false,
-		"inputs": [
-			{
-				"internalType": "address payable",
-				"name": "_oldManager",
-				"type": "address"
-			}
-		],
-		"name": "removeManager",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"internalType": "address payable",
-				"name": "_newManager",
-				"type": "address"
-			}
-		],
-		"name": "setManager",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_inBNB_wei",
-				"type": "uint256"
-			}
-		],
-		"name": "setPRMPrice",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"internalType": "address payable",
-				"name": "_upline",
-				"type": "address"
-			}
-		],
-		"name": "stake",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"payable": true,
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [],
-		"name": "takeBackPRM",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"payable": true,
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
 		"anonymous": false,
 		"inputs": [
 			{
@@ -748,21 +558,6 @@ const primalBankABI = [
 		"payable": true,
 		"stateMutability": "payable",
 		"type": "fallback"
-	},
-	{
-		"constant": false,
-		"inputs": [],
-		"name": "withdraw",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"payable": true,
-		"stateMutability": "payable",
-		"type": "function"
 	},
 	{
 		"constant": true,
@@ -792,6 +587,128 @@ const primalBankABI = [
 		],
 		"payable": false,
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"internalType": "bool",
+				"name": "_status",
+				"type": "bool"
+			}
+		],
+		"name": "changeClaimStatus",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"internalType": "address payable",
+				"name": "_newAdmin",
+				"type": "address"
+			},
+			{
+				"internalType": "address payable",
+				"name": "_newLiquidity",
+				"type": "address"
+			},
+			{
+				"internalType": "address payable",
+				"name": "_newMarketing",
+				"type": "address"
+			}
+		],
+		"name": "changeKeyPeople",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"internalType": "address payable",
+				"name": "_newOwner",
+				"type": "address"
+			}
+		],
+		"name": "changeOwner",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_planA_prm_new",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_planB_prm_new",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_planC_prm_new",
+				"type": "uint256"
+			}
+		],
+		"name": "changePRMdistribution",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"internalType": "bool",
+				"name": "_status",
+				"type": "bool"
+			}
+		],
+		"name": "changeStakeStatus",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "claimPRM",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": true,
+		"stateMutability": "payable",
 		"type": "function"
 	},
 	{
@@ -948,6 +865,42 @@ const primalBankABI = [
 	},
 	{
 		"constant": true,
+		"inputs": [],
+		"name": "getPRMPrice",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_bnb",
+				"type": "uint256"
+			}
+		],
+		"name": "getPRMforBNB",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
 		"inputs": [
 			{
 				"internalType": "address",
@@ -991,27 +944,12 @@ const primalBankABI = [
 		"constant": true,
 		"inputs": [
 			{
-				"internalType": "uint256",
-				"name": "_bnb",
-				"type": "uint256"
+				"internalType": "address payable",
+				"name": "_addr",
+				"type": "address"
 			}
 		],
-		"name": "getPRMforBNB",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "getPRMPrice",
+		"name": "getTeamBiz",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -1027,12 +965,12 @@ const primalBankABI = [
 		"constant": true,
 		"inputs": [
 			{
-				"internalType": "address payable",
-				"name": "_addr",
-				"type": "address"
+				"internalType": "uint256",
+				"name": "_bnb_amount_in_wei",
+				"type": "uint256"
 			}
 		],
-		"name": "getTeamBiz",
+		"name": "getTotalPercent",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -1175,6 +1113,21 @@ const primalBankABI = [
 	{
 		"constant": true,
 		"inputs": [],
+		"name": "master",
+		"outputs": [
+			{
+				"internalType": "address payable",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
 		"name": "owner",
 		"outputs": [
 			{
@@ -1256,6 +1209,26 @@ const primalBankABI = [
 				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "poolTopInfo",
+		"outputs": [
+			{
+				"internalType": "address[5]",
+				"name": "addrs",
+				"type": "address[5]"
+			},
+			{
+				"internalType": "uint256[5]",
+				"name": "deps",
+				"type": "uint256[5]"
 			}
 		],
 		"payable": false,
@@ -1378,26 +1351,6 @@ const primalBankABI = [
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "poolTopInfo",
-		"outputs": [
-			{
-				"internalType": "address[5]",
-				"name": "addrs",
-				"type": "address[5]"
-			},
-			{
-				"internalType": "uint256[5]",
-				"name": "deps",
-				"type": "uint256[5]"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
 		"name": "prm",
 		"outputs": [
 			{
@@ -1447,18 +1400,87 @@ const primalBankABI = [
 		"type": "function"
 	},
 	{
-		"constant": true,
-		"inputs": [],
-		"name": "roi_multiplier",
+		"constant": false,
+		"inputs": [
+			{
+				"internalType": "address payable",
+				"name": "_oldManager",
+				"type": "address"
+			}
+		],
+		"name": "removeManager",
 		"outputs": [
 			{
-				"internalType": "uint256",
+				"internalType": "bool",
 				"name": "",
-				"type": "uint256"
+				"type": "bool"
 			}
 		],
 		"payable": false,
-		"stateMutability": "view",
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"internalType": "address payable",
+				"name": "_newManager",
+				"type": "address"
+			}
+		],
+		"name": "setManager",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_inBNB_wei",
+				"type": "uint256"
+			}
+		],
+		"name": "setPRMPrice",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"internalType": "address payable",
+				"name": "_upline",
+				"type": "address"
+			}
+		],
+		"name": "stake",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": true,
+		"stateMutability": "payable",
 		"type": "function"
 	},
 	{
@@ -1474,6 +1496,21 @@ const primalBankABI = [
 		],
 		"payable": false,
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "takeBackPRM",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": true,
+		"stateMutability": "payable",
 		"type": "function"
 	},
 	{
@@ -1675,6 +1712,21 @@ const primalBankABI = [
 		],
 		"payable": false,
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "withdraw",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": true,
+		"stateMutability": "payable",
 		"type": "function"
 	}
 ]
