@@ -11,7 +11,7 @@ export class Invest extends Component {
         super(props)
 
         this.state = {
-            count: 0.01, 
+            count: 0.05, 
         }
  
         this.purchase1 = this.purchase1.bind(this); 
@@ -22,7 +22,7 @@ export class Invest extends Component {
     async purchase1(refid, amount) {
         const { primalBank } = await getBlockchain();
 
-        if (amount >= 0.01) {
+        if (amount >= 0.05) {
             let amt = Number(amount*100).toFixed();
             amt = amt + "0000000000000000";
 

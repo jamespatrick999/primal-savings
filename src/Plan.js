@@ -5,6 +5,10 @@ export class Plan extends Component {
  
     render() {
 
+        // const res = "https://api.binance.com/api/v3/ticker/price?symbol=BNBUSDT";
+        // res = JSON.parse(price)
+        // console.log(res );
+
         const colStyle = {
             backgroundImage: "linear-gradient(to right, #131050, black)", opacity: "70%", marginTop: "20px", borderRadius: "20px", marginLeft: "20px", marginRight: "20px",
             boxShadow: "0 0 20px #eee",
