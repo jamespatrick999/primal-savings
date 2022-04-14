@@ -139,9 +139,9 @@ export class Invest extends Component {
                             <a href="#500000" className="btn btn-primary" style={addButton} onClick={this.button500k}>+500 k</a>
                             <a href="#reset" className="btn btn-primary" style={addButton} onClick={this.reset}>Reset</a><br /> */}
                             
-                            <p style={{ color: "#eee97f", textAlign: "center", fontSize: "15px" }}>You will receive : {this.state.count >= 0.1 ? Number(this.state.count*1.5).toFixed(3) : (this.state.count >= 0.05 ? Number(this.state.count*1.35).toFixed(3) :  Number(this.state.count*1.2).toFixed(3) ) } BNB</p>
+                            <p style={{ color: "#eee97f", textAlign: "center", fontSize: "15px" }}>You will receive : {this.state.count >= 5 ? Number(this.state.count*1.5).toFixed(3) : (this.state.count >= 1 ? Number(this.state.count*1.35).toFixed(3) :  Number(this.state.count*1.2).toFixed(3) ) } BNB</p>
 
-                            <p style={{ color: "#eee97f", textAlign: "center", fontSize: "15px" }}>Total Return : {this.state.count >= 0.1 ? 150 : (this.state.count >= 0.05 ? 135 : 120) } %</p>
+                            <p style={{ color: "#eee97f", textAlign: "center", fontSize: "15px" }}>Total Return : {this.state.count >= 5 ? 150 : (this.state.count >= 1 ? 135 : 120) } %</p>
 
                             {/* <p style={{ color: "#eee97f", textAlign: "center", fontSize: "15px" }}>PRM price : {Number(this.props.prmPrice ).toFixed(8)} BNB</p> */}
 
