@@ -113,6 +113,7 @@ class TopPage extends Component {
        this.setState({ contract_prm_balance : (Number(contractBalances.contract_prm_balance)/10**6) });
        this.setState({ contract_bnb_balance : (Number(contractBalances.contract_bnb_balance)/10**18) }); 
 
+       this.setState({ contractAddress : primalBankAddress })
        let contractInfo = await primalBank.getContractInfo();
        this.setState({ contract_total_users : (Number(contractInfo.contract_total_users)) });
        this.setState({ _total_bnb_staked : (Number(contractInfo._total_bnb_staked)/10**18) });
@@ -178,7 +179,6 @@ class TopPage extends Component {
    //  console.log( this.state.now ) 
     }}
 
-    this.setState({ contractAddress : primalBankAddress })
     this.setState({bnb_amt : _bnb_amount })
     this.setState({bnb_divs : _bnb_dividends })
     this.setState({prm_divs : _prm_dividends })
