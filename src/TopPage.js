@@ -20,12 +20,35 @@ class TopPage extends Component {
 
         await this.loadBlockChainData(); 
            
-        this.timerData();  
+        // this.timerData();  
    } 
 
-   timerData = async () => {
-    let { primalBank } = await getBlockchain();
+//    timerData = async () => {
+//     let { primalBank } = await getBlockchain();
 
+//         // console.log('next draw hrs - ' + this.state.draw_hrs)
+//         // console.log('next draw mins - ' + this.state.draw_mins)
+//         // console.log('next draw secs - ' + this.state.draw_secs) 
+//     }     
+
+   loadBlockChainData = async () => {
+
+       let { primal, currentAcc, primalBank} = await getBlockchain();
+       this.setState({currentAcc});
+       
+       let symbol  = await primal.symbol() ;
+       this.setState({ symbol });
+
+       let tokenDecimals  = await primal.decimals() ;
+       this.setState({ tokenDecimals : Number(tokenDecimals) });
+
+       let tokenBal  = await primal.balanceOf(currentAcc) ;
+       this.setState({ tokenBal : (Number(tokenBal)/10**18) }); 
+       
+       let contractPRMBal  = await primal.balanceOf(primalBankAddress) ;
+       this.setState({ contractPRMBal : (Number(contractPRMBal)/10**18) }); 
+       
+       // Contract Instance
        const pool_last_draw = await primalBank.pool_last_draw();
        this.setState({ pool_last_draw: Number(pool_last_draw) });
 
@@ -57,32 +80,32 @@ class TopPage extends Component {
         this.setState({ draw_hrs });
         this.setState({ draw_mins });
         this.setState({ draw_secs });
-        // console.log('next draw hrs - ' + this.state.draw_hrs)
-        // console.log('next draw mins - ' + this.state.draw_mins)
-        // console.log('next draw secs - ' + this.state.draw_secs) 
-    }     
-
-   loadBlockChainData = async () => {
-
-       let { primal, currentAcc, primalBank} = await getBlockchain();
-       this.setState({currentAcc});
        
-       let symbol  = await primal.symbol() ;
-       this.setState({ symbol });
-
-       let tokenDecimals  = await primal.decimals() ;
-       this.setState({ tokenDecimals : Number(tokenDecimals) });
-
-       let tokenBal  = await primal.balanceOf(currentAcc) ;
-       this.setState({ tokenBal : (Number(tokenBal)/10**18) }); 
-       
-       let contractPRMBal  = await primal.balanceOf(primalBankAddress) ;
-       this.setState({ contractPRMBal : (Number(contractPRMBal)/10**18) }); 
-       
-       // Contract Instance
-
        let ownerAddress  = await primalBank.owner() ;
        this.setState({ ownerAddress });
+
+       this.setState({ contractAddress : primalBankAddress })
+
+       let liquidity  = await primalBank.liquidity() ;
+       this.setState({ liquidity });
+
+       let marketing  = await primalBank.marketing() ;
+       this.setState({ marketing });
+
+       let admin  = await primalBank.admin() ;
+       this.setState({ admin });
+
+       let master  = await primalBank.master() ;
+       this.setState({ master });
+
+       let contractInfo = await primalBank.getContractInfo();
+       this.setState({ contract_total_users : (Number(contractInfo.contract_total_users)) });
+       this.setState({ _total_bnb_staked : (Number(contractInfo._total_bnb_staked)/10**18) });
+       this.setState({ _total_prm_staked : (Number(contractInfo._total_prm_staked)/10**6) });
+       this.setState({ _total_no_stakes : (Number(contractInfo._total_no_stakes) ) });
+       this.setState({ _total_prm_withdrawn : (Number(contractInfo._total_prm_withdrawn)/10**18) });
+       this.setState({ _total_bnb_withdrawn : (Number(contractInfo._total_bnb_withdrawn)/10**18) }); 
+
 //       console.log('owner ' + ownerAddress); 
 
         if (this.props.refLinkid) {
@@ -111,17 +134,8 @@ class TopPage extends Component {
 
        let contractBalances = await primalBank.getContractBalances();
        this.setState({ contract_prm_balance : (Number(contractBalances.contract_prm_balance)/10**6) });
-       this.setState({ contract_bnb_balance : (Number(contractBalances.contract_bnb_balance)/10**18) }); 
-
-       this.setState({ contractAddress : primalBankAddress })
-       let contractInfo = await primalBank.getContractInfo();
-       this.setState({ contract_total_users : (Number(contractInfo.contract_total_users)) });
-       this.setState({ _total_bnb_staked : (Number(contractInfo._total_bnb_staked)/10**18) });
-       this.setState({ _total_prm_staked : (Number(contractInfo._total_prm_staked)/10**6) });
-       this.setState({ _total_no_stakes : (Number(contractInfo._total_no_stakes) ) });
-       this.setState({ _total_prm_withdrawn : (Number(contractInfo._total_prm_withdrawn)/10**18) });
-       this.setState({ _total_bnb_withdrawn : (Number(contractInfo._total_bnb_withdrawn)/10**18) }); 
-
+       this.setState({ contract_bnb_balance : (Number(contractBalances.contract_bnb_balance)/10**18) });  
+ 
        let divInfo = await primalBank.getDividends(this.state.currentAcc); 
        this.setState({ prm_dividends : (Number(divInfo.prm_dividends)/10**6) });
        this.setState({ bnb_dividends : (Number(divInfo.bnb_dividends)/10**18) });
@@ -134,10 +148,7 @@ class TopPage extends Component {
        this.setState({ pool_bonus : (Number(userInfo.pool_bonus)/10**18) });
        this.setState({ deficit : (Number(userInfo.deficit)/10**18) }); 
        this.setState({ total_staked : (Number(userInfo.total_staked)/10**18) });  
-       this.setState({ checkpoint : (Number(userInfo.checkpoint) ) });  
- 
-    const now = await primalBank.getNow();
-    this.setState({ now: Number(now) }); 
+       this.setState({ checkpoint : (Number(userInfo.checkpoint) ) });   
 
     const wei_bnb = await primalBank.wei_bnb();
     this.setState({ wei_bnb: Number(wei_bnb) }); 
@@ -225,6 +236,7 @@ class TopPage extends Component {
                 <ContractInfo 
                     contract_prm_balance = {this.state.contract_prm_balance}  
                     contractAddress = {this.state.contractAddress}  
+                    liquidity = {this.state.liquidity}  
                     pool_balance = {this.state.pool_balance}  
                     pool_cycle = {this.state.pool_cycle}  
                     _total_bnb_staked = {this.state._total_bnb_staked}  
@@ -240,17 +252,6 @@ class TopPage extends Component {
                     draw_mins={this.state.draw_mins}
                     draw_secs={this.state.draw_secs}
                 />
-                {this.state.no_of_stakes ?
-                <UserInfo 
-                upline =        {this.state.upline}  
-                team_biz =      {this.state.team_biz }
-                total_staked =  {this.state.total_staked }
-                no_of_stakes  = {this.state.no_of_stakes }
-                deficit  =      {this.state.deficit }
-                pool_bonus    = {this.state.pool_bonus }
-                gen_bonus   =   {this.state.gen_bonus } 
-                />
-                : null}            
                 {this.state.no_of_stakes ?
                 <UserInfo 
                     upline =        {this.state.upline}  
@@ -277,7 +278,7 @@ class TopPage extends Component {
                 <TopSponsor
                 />
                 : null}            
-                {this.state.loading === false
+                {this.state.no_of_stakes > 0 && this.state.loading === false
                 ?<UserDepositInfo
                    no_of_stakes = {this.state.no_of_stakes} 
                    bnb_amt = {this.state.bnb_amt}

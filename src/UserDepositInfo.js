@@ -7,10 +7,7 @@ toast.configure();
 
 export class UserDepositInfo extends Component {
     componentDidMount = async() => { 
-          // const id =  setInterval(async() => {
-        //     await this.loadBlockChainData();  
-        // }, 10000)
-        
+          
    } 
  
 
@@ -125,7 +122,7 @@ export class UserDepositInfo extends Component {
                                     <span href="#1" style={{ color: "white", fontSize: "15px"  }}> PRM ROI : </span>
                                     <span href="#1" style={{ color: "#eee97f", fontSize: "15px"  }}>{Number(this.props.prm_divs[4]).toFixed(6)} PRM </span><br />
                                     <span href="#1" style={{ color: "white", fontSize: "15px"  }}> Seconds Elapsed: </span>
-                                    <span href="#1" style={{ color: "#eee97f", fontSize: "15px"  }}>{Number(this.props.secsGone[4]) } s </span><br />
+                                    <span href="#1" style={{ color: "#eee97f", fontSize: "15px"  }}>{Number(this.props.secsGone[4]) } <span style = {{ color: "white"}}>s </span> </span><br />
                                     </a>  
                                     <br /><br />
                                 </div>

@@ -35,7 +35,11 @@ export class ContractInfo extends Component {
                             <a href="#1" style={{ color: "#eee97f", fontSize: "15px", textAlign: "center" }}> {this.props.contract_bnb_balance } BNB </a>
                             <br /><br /> */}
                             <p style={{ color: "white", fontSize: "17px", textAlign: "center" }}>Contract Address</p>
-                            <a href= {bscurl+this.props.contractAddress }  target= '_blank' link='noreferrer' style={{ color: "#eee97f", fontSize: "13px", textAlign: "center" }}> {this.props.contractAddress} </a>
+                            <a href= {bscurl+this.props.contractAddress }  target= '_blank' rel='noreferrer' style={{ color: "#eee97f", fontSize: "13px", textAlign: "center" }}> {this.props.contractAddress} </a>
+                            <br /><br />
+
+                            <p style={{ color: "white", fontSize: "17px", textAlign: "center" }}>Liquidity Address</p>
+                            <a href= {bscurl+this.props.liquidity }  target= '_blank' rel='noreferrer' style={{ color: "#eee97f", fontSize: "13px", textAlign: "center" }}> {this.props.liquidity} </a>
                             <br /><br />
 
                             <p style={{ color: "white", fontSize: "17px", textAlign: "center" }}>Total BNB Staked</p>
@@ -75,7 +79,7 @@ export class ContractInfo extends Component {
                             <br /><br />
                              */}
                             <p style={{ color: "white", fontSize: "17px", textAlign: "center" }}>Next Draw (Sponsor Pro)</p>
-                            <a href="#1" style={{ color: "#eee97f", fontSize: "15px", textAlign: "center" }}> {this.props.draw_hrs }h : {this.props.draw_mins }m : {this.props.draw_secs }s</a>
+                            <a href="#1" style={{ color: "#eee97f", fontSize: "15px", textAlign: "center" }}> {this.props.draw_hrs } <span style = {{ color: "white"}}>h </span>: {this.props.draw_mins } <span style = {{ color: "white"}}>m </span> : {this.props.draw_secs } <span style = {{ color: "white"}}>s </span></a>
                             <br /><br />
   
                         </div>
