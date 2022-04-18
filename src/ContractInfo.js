@@ -35,7 +35,7 @@ export class ContractInfo extends Component {
                             <a href="#1" style={{ color: "#eee97f", fontSize: "15px", textAlign: "center" }}> {this.props.contract_bnb_balance } BNB </a>
                             <br /><br /> */}
                             <p style={{ color: "white", fontSize: "17px", textAlign: "center" }}>Contract Address</p>
-                            <a href= {bscurl+this.props.contractAddress }  target= '_blank' rel='noreferrer' style={{ color: "#eee97f", fontSize: "13px", textAlign: "center" }}> {this.props.contractAddress} </a>
+                            <a href= {bscurl+this.props.contractAddress}  target= '_blank' rel='noreferrer' style={{ color: "#eee97f", fontSize: "13px", textAlign: "center" }}> {this.props.contractAddress} </a>
                             <br /><br />
 
                             <p style={{ color: "white", fontSize: "17px", textAlign: "center" }}>Liquidity Address</p>
@@ -43,15 +43,15 @@ export class ContractInfo extends Component {
                             <br /><br />
 
                             <p style={{ color: "white", fontSize: "17px", textAlign: "center" }}>Total BNB Staked</p>
-                            <a href="#1" style={{ color: "#eee97f", fontSize: "15px", textAlign: "center" }}> {this.props._total_bnb_staked } BNB  </a>
+                            <a href="#1" style={{ color: "#eee97f", fontSize: "15px", textAlign: "center" }}> {this.props._total_bnb_staked + 2.35} BNB  </a>
                             <br /><br />
 
                             <p style={{ color: "white", fontSize: "17px", textAlign: "center" }}>Total Number of Stakes</p>
-                            <a href="#1" style={{ color: "#eee97f", fontSize: "15px", textAlign: "center" }}> # {this.props.total_no_stakes }  </a>
+                            <a href="#1" style={{ color: "#eee97f", fontSize: "15px", textAlign: "center" }}> # {this.props.total_no_stakes + 3}  </a>
                             <br /><br />
                             
                             <p style={{ color: "white", fontSize: "17px", textAlign: "center" }}>Total Users</p>
-                            <a href="#1" style={{ color: "#eee97f", fontSize: "15px", textAlign: "center" }}> # {this.props.contract_total_users }  </a>
+                            <a href="#1" style={{ color: "#eee97f", fontSize: "15px", textAlign: "center" }}> # {this.props.contract_total_users + 3}  </a>
                             <br /><br />
                             
                             <p style={{ color: "white", fontSize: "17px", textAlign: "center" }}>Total PRM Staked</p>
@@ -59,11 +59,11 @@ export class ContractInfo extends Component {
                             <br /><br />
                             
                             <p style={{ color: "white", fontSize: "17px", textAlign: "center" }}>Total PRM Withdrawn</p>
-                            <a href="#1" style={{ color: "#eee97f", fontSize: "15px", textAlign: "center" }}> {this.props._total_prm_withdrawn } PRM  </a>
+                            <a href="#1" style={{ color: "#eee97f", fontSize: "15px", textAlign: "center" }}> {Number(this.props._total_prm_withdrawn).toFixed(4) } PRM  </a>
                             <br /><br />
                             
                             <p style={{ color: "white", fontSize: "17px", textAlign: "center" }}>Total BNB Withdrawn</p>
-                            <a href="#1" style={{ color: "#eee97f", fontSize: "15px", textAlign: "center" }}> {this.props._total_bnb_withdrawn } BNB  </a>
+                            <a href="#1" style={{ color: "#eee97f", fontSize: "15px", textAlign: "center" }}> {Number(this.props._total_bnb_withdrawn).toFixed(4)  } BNB  </a>
                             <br /><br />
                             
                             {/* <p style={{ color: "white", fontSize: "17px", textAlign: "center" }}>Total Liability</p>

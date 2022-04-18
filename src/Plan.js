@@ -24,13 +24,14 @@ export class Plan extends Component {
                     <div className="col-xl-6" style={colStyle}>
 
                         <div className="col-xl-6" style={headerStyle}>
-                            Plan Details</div>
+                            Plan Details
+                        </div>
 
                         <br />
-                        <div className="col-xl-12" style={{ textAlign: "left" }}>
-                        <p style={{color:"white", fontWeight:"bold"}}><span style={{color:"gold"}}>Plan A:</span> 0.05 BNB to 0.999 BNB - <span style={{color:"gold"}}>Total ROI :</span> 120% + 200 PRM</p>
-                        <p style={{color:"white", fontWeight:"bold"}}><span style={{color:"gold"}}>Plan B:</span> 1.00 BNB to 4.999 BNB - <span style={{color:"gold"}}>Total ROI :</span> 135% + 700 PRM</p>
-                        <p style={{color:"white", fontWeight:"bold"}}><span style={{color:"gold"}}>Plan C:</span> 5.00 BNB upwards - <span style={{color:"gold"}}>Total ROI :</span> 150% + 1500 PRM</p>
+                        <div className="col-xl-12" style={{ textAlign: "center" }}>
+                            <p style={{color:"white", fontWeight:"bold"}}><span style={{color:"gold"}}>Plan A:</span> 0.05 BNB to 0.999 BNB -  3% Daily for 40 Days  <br/> <span style={{color:"gold", paddingLeft:"20px"}}>Total ROI :</span> 120% + 200 PRM</p>
+                            <p style={{color:"white", fontWeight:"bold"}}><span style={{color:"gold"}}>Plan B:</span> 1.00 BNB to 4.999 BNB -  3% Daily for 45 Days  <br/>  <span style={{color:"gold", paddingLeft:"20px"}}>Total ROI :</span> 135% + 700 PRM</p>
+                            <p style={{color:"white", fontWeight:"bold"}}><span style={{color:"gold"}}>Plan C:</span> 5.00 BNB upwards -  3% Daily for 50 Days  <br/> <span style={{color:"gold", paddingLeft:"20px"}}>Total ROI :</span> 150% + 1500 PRM</p>
                         <br />
                         </div>
                     </div>
